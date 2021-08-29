@@ -1,0 +1,39 @@
+doctype html
+html(lang="ar", dir="ltr")
+   head
+        title my blog!
+        link(rel="stylesheet", href="/style.css")
+   body
+      if (user)
+              if user.is_author ==1
+                  header#blog-header
+                       h1:  a#blog-title(href="/") my blog
+                       ul#blog-nav
+                           li: a.btn(href="/new") New blog
+                           li: a.btn.btn-primary(href="/logout") logout                                                        
+              else 
+                 header#blog-header
+                       h1:  a#blog-title(href="/") my blog
+                       ul#blog-nav 
+                           li: a.btn.btn-primary(href="/logout") logout
+      else 
+        header#blog-header
+            h1:  a#blog-title(href="/") my blog
+            ul#blog-nav
+                li: a.btn(href="/") home
+                li: a.btn(href="/login") login
+                li: a.btn.btn-primary(href="/signup") sign up
+      block content
+      br br
+      hr
+      footer#blog-footer2
+            p All rights reserved to the world of programming
+                                                             
+                                           
+     
+                                         
+           
+      
+   
+      
+   

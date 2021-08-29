@@ -1,0 +1,48 @@
+extends _layout
+include _mixins2
+block content
+    .post
+        +post(post, true)
+        #comments
+         div.comments
+            h3 comments
+            if post.comments
+                for comment in post.comments
+                    p  Writing 
+                        b #{ comment.full_name }
+                        br
+                        | #{ comment.body }
+                        small #{ formatDate(comment.created) }
+                        div.com                    
+            else
+                p  No comments  
+
+        if user
+            form#comment-form(action="/posts/" + post.slug + "/comments", method="POST")
+                textarea#txtPassportNumber(name="comment",onkeyup="EnableDisable(this)",  placeholder="write your comment")
+                input#btnSubmit(type="submit", disabled="disabled" , value="send comment")
+        else
+            span.noa to add a comment ,
+            a(href="/login") login
+            | or
+            a(href="/signup") signup
+                        
+                                                             
+      
+       script.
+              function EnableDisable(txtPassportNumber) {
+                var btnSubmit = document.getElementById("btnSubmit");
+                 if (txtPassportNumber.value.trim() != "") {
+                     btnSubmit.disabled = false;
+                     btnSubmit.style.background = "#000";	
+                  } else {
+                      btnSubmit.disabled = true;
+                      btnSubmit.style.background = "#fff";
+                  }      
+               };
+                                                                                                                                                    
+                                                                                                
+                     
+                                                            
+                                                             
+                                                

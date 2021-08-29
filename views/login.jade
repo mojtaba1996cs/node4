@@ -1,0 +1,13 @@
+extends _layout
+block content
+  div.login
+     form(action="/sessions", method="POST")(dir="ltr")
+      div.input
+       span.label username
+       input(type="text", name="username", required)
+       br
+      div.input
+       span.label password
+       input(type="password", name="password", required)
+      div.actions   
+        input(type="submit", value="login")

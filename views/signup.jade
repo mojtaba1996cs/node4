@@ -1,0 +1,15 @@
+extends _layout
+block content
+  div.signup
+    form(action="/accounts", method="POST")
+        div.input
+         span.label full name
+         input(type="text", name="name", placeholder="enter full name..", required)
+        div.input
+         span.label password
+         input(type="password", name="password", placeholder="enter password..." ,required)
+        div.input
+         span.label username
+         input(type="text", name="username", placeholder="enter username..." ,required)
+        div.actions
+         input(type="submit", value="sign up")

@@ -1,0 +1,7 @@
+mixin post(post, full)
+    h2.post-title: a(href="/posts/" + post.slug) #{ post.title }
+    div.post-body #{ full ? post.body : (post.body.substr(0, 300))}
+     a(href="/posts/" + post.slug) show more 
+     br
+     small.post-date I wrote #{ formatDate(post.date) }
+                                                                   

@@ -1,0 +1,4 @@
+extends _layout
+block content
+    h2 خطأ #{ statusCode }
+    p #{ error.message || error.toString() }
