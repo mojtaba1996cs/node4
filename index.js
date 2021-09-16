@@ -1,6 +1,7 @@
 
 var express = require("express");
 var mysql = require("mysql");
+var port = process.env.PORT || 3000;
 // middlware
 var bodyParser = require("body-parser");
 var session = require('express-session');
@@ -248,5 +249,6 @@ app.put("/posts/:slug", function(request, response, next) {
 app.use(function(err, request, response, next) {
     response.render("error", { error: err, statusCode: response.statusCode })
 })
-
-app.listen(3000);
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
